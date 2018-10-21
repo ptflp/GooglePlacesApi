@@ -2,19 +2,19 @@
 
 interface GooglePlacesApiInterface
 {
-    public function getCitiesByName(string $name);
+    public function requestCitiesByName(string $name);
 
-    public function getPlacesByName(string $name);
+    public function requestPlacesByName(string $name);
 
-    public function getPlacesByCity(string $city, string $place);
+    public function requestPlacesByCity(string $city, string $place);
 
-    public function getAdressByCity(string $city, string $address);
+    public function requestAdressByCity(string $city, string $address);
 
-    public function getDetails(string $fields);
+    public function requestDetails(string $fields);
 
     public function getPlaceDetailsById(string $placeId, string $fields);
 
-    public function getOne();
+    public function findOne();
 
     public function getResults();
 

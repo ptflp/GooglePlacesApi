@@ -30,7 +30,7 @@ class GooglePlacesApi implements GooglePlacesApiInterface
         $this->client = $client;
     }
 
-    public function getCitiesByName(string $name)
+    public function requestCitiesByName(string $name)
     {
         $paramsUrl = [
             'input'=>$name,
@@ -47,7 +47,7 @@ class GooglePlacesApi implements GooglePlacesApiInterface
 
     }
 
-    public function getPlacesByName(string $name, int $radius=NULL, array $location=NULL)
+    public function requestPlacesByName(string $name, int $radius=NULL, array $location=NULL)
     {
         if(!$location==NULL) {
             $this->location = $location;
@@ -84,7 +84,7 @@ class GooglePlacesApi implements GooglePlacesApiInterface
         return $this;
     }
 
-    public function getPlacesByCity(string $city, string $place)
+    public function requestPlacesByCity(string $city, string $place)
     {
         $paramsUrl = [
             'input'=>$city.' '.$place,
@@ -101,7 +101,7 @@ class GooglePlacesApi implements GooglePlacesApiInterface
         return $this;
     }
 
-    public function getAdressByCity(string $city, string $address)
+    public function requestAdressByCity(string $city, string $address)
     {
         $paramsUrl = [
             'input'=>$city.' '.$address,
@@ -119,7 +119,7 @@ class GooglePlacesApi implements GooglePlacesApiInterface
         return $this;
     }
 
-    public function getDetails(string $fields = NULL)
+    public function requestDetails(string $fields = NULL)
     {
         if (!is_array($this->results)) {
             $this->results->details = $this->getPlaceDetailsById($this->placeId,$fields);
@@ -154,7 +154,7 @@ class GooglePlacesApi implements GooglePlacesApiInterface
         return $data->result;
     }
 
-    public function getOne()
+    public function findOne()
     {
         $this->results = $this->results[0];
         $this->placeId = $this->results->place_id;
