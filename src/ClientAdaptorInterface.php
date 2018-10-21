@@ -6,6 +6,10 @@ interface ClientAdaptorInterface
 
     public function setParamsUrl(array $paramsUrl);
 
+    public function setRequestType(string $requestType);
+
+    public function generateUrl();
+
     public function fetch();
 
     public function getStatusCode();
